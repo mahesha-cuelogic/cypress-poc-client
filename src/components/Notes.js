@@ -31,6 +31,7 @@ const ToDo = () => {
     const newId = Math.max(...list.map((t) => t.id)) + 1;
     const newToDo = { id: newId, ...toDo };
     setList([...list, newToDo]);
+    restApi.post('notes', toDo);
     setToDo({ title: '', text: '' });
   };
 
@@ -48,6 +49,7 @@ const ToDo = () => {
 
   const deleteItem = (todo) => {
     setList(list.filter((item) => item !== todo));
+    restApi.delete(`notes/${todo._id}`);
   };
 
   return (
