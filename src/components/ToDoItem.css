@@ -8,26 +8,57 @@
     width: 90%;
     background-color: white;
     border: 1px solid lightgrey;
-    box-shadow: 1px 1px 1px lightgrey;
+    /* box-shadow: 1px 1px 1px lightgrey; */
     padding: 12px;
     margin-right: 10px;
+    float: left;
 }
 
 .ToDoItem-Delete {
-    width: 35px;
-    /*padding: 5px;*/
-    height: 35px;
     cursor: pointer;
-    background: #ff7373;
-    border-radius: 10px;
-    box-shadow: 1px 1px 1px #c70202;
-    color: white;
-    font-size: 18px;
+    background: #ffffff;
+    border-style: none;
+    color: #ff0000;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.ToDoItem-edit {
+    cursor: pointer;
+    background: #ffffff;
+    border-style: none;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
     margin-right: 5px;
 }
 
 .ToDoItem-Delete:hover {
+    box-shadow: #099b4d;
+    margin-top: 1px;
+    margin-left: 1px;
+}
+
+.ToDoInput {
+    margin-left: 57px;
+}
+
+.ToDoItem-plus {
+    width: 35px;
+    /*padding: 5px;*/
+    height: 35px;
+    cursor: pointer;
+    background: #099b4d;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px #270202;
+    color: white;
+    font-size: 30px;
+    margin-right: 5px;
+    margin-top: 12px;
+}
+
+.ToDoItem-plus:hover {
     box-shadow: none;
     margin-top: 1px;
     margin-left: 1px;
+    margin-top: 12px;
 }

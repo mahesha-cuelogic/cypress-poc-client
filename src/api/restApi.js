@@ -5,7 +5,7 @@ window.axios = axios;
 
 class ApiService {
     get = (path) => new Promise((res, rej) => {
-      axios.get(`http://localhost:3000/${path}`)
+      axios.get(`http://localhost:3001/${path}`)
       .then(function (response) {
         res(response.data);
       })
@@ -19,7 +19,22 @@ class ApiService {
     });
 
     post = (path, payload) => new Promise((res, rej) => {
-      axios.post(`http://localhost:3000/${path}`, payload)
+      axios.post(`http://localhost:3001/${path}`, payload)
+      .then(function (response) {
+        console.log(response.data);
+        res(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+        rej(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+    });
+
+    put = (path, payload) => new Promise((res, rej) => {
+      axios.put(`http://localhost:3001/${path}`, payload)
       .then(function (response) {
         console.log(response.data);
         res(response.data);
@@ -34,7 +49,7 @@ class ApiService {
     });
 
     delete = (path, payload) => new Promise((res, rej) => {
-        axios.delete(`http://localhost:3000/${path}`, payload)
+        axios.delete(`http://localhost:3001/${path}`, payload)
         .then(function (response) {
           console.log(response.data);
           res(response.data);
