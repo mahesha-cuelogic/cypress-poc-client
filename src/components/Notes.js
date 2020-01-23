@@ -37,10 +37,8 @@ const ToDo = () => {
             setToDo({ title: '', text: '' });
             return;
         }
-        const newId = Math.max(...list.map((t) => t.id)) + 1;
-        const newToDo = { id: newId, ...toDo };
-        setList([...list, newToDo]);
-        restApi.post('notes', toDo);
+        const res = await restApi.post('notes', toDo);
+        setList([...list, res]);
         setToDo({ title: '', text: '' });
     };
 
@@ -99,7 +97,7 @@ const ToDo = () => {
                 </div>
                 <div className="ToDoInput">
                     <input
-                        data-testid="todo-input"
+                        data-testid="todo-input-title"
                         type="text"
                         name="title"
                         placeholder="title here"
@@ -110,7 +108,7 @@ const ToDo = () => {
                         value={!isEditing ? toDo.title : ''}
                     />
                     <input
-                        data-testid="todo-input"
+                        data-testid="todo-input-text"
                         type="text"
                         name="text"
                         placeholder="discription here"

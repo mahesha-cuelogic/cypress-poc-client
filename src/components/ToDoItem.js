@@ -11,19 +11,19 @@ const ToDoItem = (props) => {
       </p>
       {item.editing ?
         <>
-        <input
-          data-testid="todo-input"
-          type="text"
-          name="title"
-          placeholder="title here"
-          onChange={handleInput}
-          onKeyPress={handleKeyPress}
-          className="ToDoItem-Text"
-          style={{ width: '22%' }}
-          value={toDo.title}
-        />
-        <input
-            data-testid="todo-input"
+          <input
+            data-testid="todo-title-editing"
+            type="text"
+            name="title"
+            placeholder="title here"
+            onChange={handleInput}
+            onKeyPress={handleKeyPress}
+            className="ToDoItem-Text"
+            style={{ width: '22%' }}
+            value={toDo.title}
+          />
+          <input
+            data-testid="todo-text-editing"
             type="text"
             name="text"
             placeholder="discription here"
@@ -35,23 +35,23 @@ const ToDoItem = (props) => {
           />
         </> :
         <>
-        <p data-testid="todo-text" className="ToDoItem-Text" style={{ width: '30%' }}>
-          <b>{item.title || '-'}</b>
-        </p>
-        <p data-testid="todo-text" className="ToDoItem-Text">
-        {item.text || '-'}
-      </p>
+          <p data-testid="todo-text" className="ToDoItem-Text" style={{ width: '30%' }}>
+            <b>{item.title || '-'}</b>
+          </p>
+          <p data-testid="todo-text" className="ToDoItem-Text">
+            {item.text || '-'}
+          </p>
         </>
       }
       {item.editing ?
-        <button data-testid="delete" className="ToDoItem-edit" onClick={() => saveitem(item)}>
+        <button data-testid="save-item" className="ToDoItem-edit" onClick={() => saveitem(item)}>
           <span role="img" >✅</span>
         </button> :
-        <button data-testid="delete" disabled={isEditing} className="ToDoItem-edit" onClick={() => editItem(item)}>
+        <button data-testid="edit-item" disabled={isEditing} className="ToDoItem-edit" onClick={() => editItem(item)}>
           <span role="img" >🖋️</span>
         </button>
       }
-      <button data-testid="delete" className="ToDoItem-Delete" onClick={() => deleteItem(item)}>
+      <button data-testid="delete-item" className="ToDoItem-Delete" onClick={() => deleteItem(item)}>
         <span role="img" >❌</span>
       </button>
     </div>
