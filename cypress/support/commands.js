@@ -23,3 +23,26 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('addOne', function () {
+    cy.request({
+        method: 'POST',
+        url: 'http://localhost:3001/notes',
+      form: true,
+        body: {
+          text: 'from cypress buddy',
+          title: 'cypress'
+        }
+      })
+  })
+  
+  Cypress.Commands.add('iframe', (iframeSelector, elSelector) => {
+    return cy
+      .get(`iframe${iframeSelector || ''}`, { timeout: 10000 })
+      .should($iframe => {
+        expect($iframe.contents().find(elSelector||'body')).to.exist
+      })
+      .then($iframe => {
+        return cy.wrap($iframe.contents().find('body'))
+      })
+  })

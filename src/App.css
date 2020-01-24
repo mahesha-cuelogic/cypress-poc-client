@@ -4,10 +4,6 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
   background: linear-gradient(#dcaeff, #ff6a3d);
   height: auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .Logo {
